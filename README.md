@@ -9,7 +9,7 @@ Built and tested for Quake3, but will work with most RCON systems.
 ## Examples:
 
 Send RCON commands without waiting for a response:
-```
+```python
 from pyrcon import RCON
 
 rcon = RCON("127.0.0.1", "secret_password") 
@@ -17,7 +17,7 @@ rcon.send_command("say Hello, world!")
 ```
 
 Send RCON commands and get their response:
-```
+```python
 from pyrcon import RCON
 
 rcon = RCON("127.0.0.1", "secret_password")
