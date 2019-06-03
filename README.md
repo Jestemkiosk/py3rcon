@@ -14,7 +14,7 @@ Send RCON commands without waiting for a response:
 from py3rcon import RCON
 
 rcon = RCON("127.0.0.1", "secret_password") 
-rcon.send_command("say Hello, world!")
+rcon.send_command("say Hello, world!", response=False)
 ```
 
 Send RCON commands and get their response:
@@ -22,6 +22,6 @@ Send RCON commands and get their response:
 from py3rcon import RCON
 
 rcon = RCON("127.0.0.1", "secret_password", port=27960) #port is optional
-status = rcon.send_command("status", response=True) 
+status = rcon.send_command("status") 
 print(status)
 ```
