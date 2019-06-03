@@ -9,7 +9,7 @@ class RCON:
         self.prefix = bytes([0xff, 0xff, 0xff, 0xff]) + b'rcon '
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    def send_command(self, command, response=False):
+    def send_command(self, command, response=True):
 
         cmd = f"{self.password} {command}".encode()
         query = self.prefix + cmd
@@ -18,15 +18,20 @@ class RCON:
         self.socket.send(query)
 
         if response:
-            data = self.socket.recv(4096)
-            return data
+            self.socket.settimeout(3)
+            try:
+                data = self.socket.recv(4096)
+                return data
+            except socket.timeout:
+                return None
 
 if __name__ == "__main__":
     rcon = RCON('127.0.0.1', "secret")
     
-    # No-response command.
-    rcon.send_command("say Hello, world!")
-
-    # If you need a response.
-    response = rcon.send_command("status", response=True)
+    response = rcon.send_command("status")
     print(response)
+    
+    # If you don't need a response and 
+    # don't want to wait 3 sec for the timeout
+    
+    rcon.send_command("say Hello, world!", response=False)
