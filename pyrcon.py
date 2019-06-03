@@ -28,10 +28,13 @@ class RCON:
 if __name__ == "__main__":
     rcon = RCON('127.0.0.1', "secret")
     
-    response = rcon.send_command("status")
-    print(response)
-    
     # If you don't need a response and 
     # don't want to wait 3 sec for the timeout
     
     rcon.send_command("say Hello, world!", response=False)
+    
+    # Regular response command.
+    
+    response = rcon.send_command("status")
+    print(response)
+   
