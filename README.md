@@ -1,5 +1,6 @@
 # py3rcon
 RCON API for Python3
+[![Downloads](https://pepy.tech/badge/py3rcon)](https://pepy.tech/project/py3rcon)
 
 Built and tested for Quake3, but will work with most RCON systems.
 
