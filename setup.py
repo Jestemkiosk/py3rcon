@@ -10,7 +10,7 @@ setuptools.setup(
 
      version='1.0',
 
-     scripts=['pyrcon'] ,
+     scripts=['pyrcon.py'] ,
 
      author="Wiktor Metryka",
 
@@ -20,11 +20,9 @@ setuptools.setup(
 
      long_description=long_description,
 
-   long_description_content_type="text/markdown",
+     long_description_content_type="text/markdown",
 
      url="https://github.com/Jestemkioskiem/py3rcon",
-
-     packages=[],
 
      classifiers=[
 
